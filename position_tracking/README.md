@@ -9,4 +9,4 @@ The system is based on [Traccar service](https://www.traccar.org/) runnig on the
 
 ## Usage
 
-    ./position_upload.sh
+    watch -n 30 position_upload.sh
