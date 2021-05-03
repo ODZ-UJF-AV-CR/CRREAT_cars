@@ -18,5 +18,16 @@ Scripts for parsing data from measurement devices mounted on cars for thundersto
 
 ### CAR 1
 
+  * Anemometer
+  * Distrometer
+  * GNSS position and orientation tracking
+  * High-speed camera
+  * Gamma spectrometer
 
 ### CAR 2
+
+  * Anemometer
+  * Mobile Magnetic loop antenna
+  * Distrometer
+  * GNSS position and orientation tracking
+  * Gamma spectrometer
