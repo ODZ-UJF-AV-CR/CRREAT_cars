@@ -5,6 +5,9 @@ Scripts for parsing data from measurement devices mounted on cars for thundersto
 
 ## Equipment of the cars
 
+![CRREAT CAR equipment connection](doc/img/Equipment_schematics.JPG)
+
+
 ### CAR 0
 
 ![CRREAT CAR 0 in action](doc/img/CRREAT_CAR0.JPG)
