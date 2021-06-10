@@ -3,7 +3,7 @@
 Scripts for parsing data from measurement devices mounted on cars for thunderstorm chasing.
 
 
-## Equipment of the cars
+## Measuring cars configurations
 
 ![CRREAT CAR equipment connection](doc/img/Equipment_schematics.JPG)
 
@@ -34,3 +34,14 @@ Scripts for parsing data from measurement devices mounted on cars for thundersto
   * Distrometer
   * GNSS position and orientation tracking
   * Gamma spectrometer
+
+
+## Equipment description
+
+
+### High speed camera
+
+![High-speed whole sky camera](doc/img/high_speed_camera.jpg)
+
+
+[![Lightning capture demonstration video](https://img.youtube.com/vi/TS5qrMavIaQ/0.jpg)](https://youtu.be/TS5qrMavIaQ?t=18)
