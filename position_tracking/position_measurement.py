@@ -174,13 +174,13 @@ try:
         gpsd_device=opts['gpsd_device'],
         input_speed=opts['input_speed'],
         verbosity_level=opts['verbosity'],
-        write_requested=(opts['disable'] or opts['enable'] or opts['poll']))
+        write_requested= False)
     gps_model.io_handle = io_handle
 
     sys.stdout.flush()
 
     exit_code = io_handle.read(gps_model.decode_msg,  # decode function
-                               opts['input_wait'])    # raw input
+                              expect_statement_identifier="UBX-NAV-RELPOSNED")    # RELPOSNED data
 
     if ((gps.VERB_RAW <= opts['verbosity']) and io_handle.out):
         # dump raw left overs
