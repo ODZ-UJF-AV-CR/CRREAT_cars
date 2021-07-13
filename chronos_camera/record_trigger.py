@@ -1,8 +1,41 @@
 #!/usr/bin/python3
 
 import requests
+import time
+import datetime
+
+camera_url = "http://chronos.lan"
 
 #inspired by https://github.com/krontech/chronos-examples/tree/master/python3
 
-post = requests.post('http://chronos.lan/control/startFilesave', json = {'format': 'h264', 'device': 'mmcblk1p1'})
-print(post.reason)
+# disable camera backlight LCD to save power and reduce temperature
+post = requests.post(camera_url+'/control/p', json = {'backlightEnabled': False })
+if post.reason == "OK" :
+	print("Camera LCD backlight sucesfully Disabled")
+else:
+    print(post)
+
+filename = time.strftime("%Y%m%d%H%M%S", time.gmtime())+"_lightning.mp4"
+
+post = requests.get(camera_url+'/control/p/videoState')
+if post.json() != {'videoState':'filesave'}:
+
+    post = requests.get(camera_url+'/control/p/state')
+    if post.json() == {'state':'recording'}:
+        post = requests.post(camera_url+'/control/stopRecording')
+        print("Stopping camera recording")
+
+    elif post.json() == {'state':'idle'}:
+        print("Camera is already idle")
+
+    else:
+        print(post.json())
+
+    post = requests.post(camera_url+'/control/startFilesave', json = {'format': 'h264', 'device': 'mmcblk1p1', 'filename': filename })
+    if post.reason == "OK" :
+    	print("Saving the video")
+    else:
+        print("Unable to save the video")
+        print(post)
+else:
+    print("Camera is already saving the video. Do not disturb!")
