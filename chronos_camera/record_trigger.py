@@ -19,7 +19,7 @@ else:
 try:
 	current_time = datetime.now()
 
-	filename = current_time.strftime("%Y-%m-%d-%H-%M-%S.%f")+"-lightning.mp4"
+	filename = current_time.strftime("%Y-%m-%d-%H-%M-%S.%f")+"-lightning"
 
 	post = requests.get(camera_url+'/control/p/videoState')
 	if post.json() != {'videoState':'filesave'}:
