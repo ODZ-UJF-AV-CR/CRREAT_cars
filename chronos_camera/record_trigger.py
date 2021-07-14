@@ -2,7 +2,7 @@
 
 import requests
 import time
-import datetime
+from datetime import datetime
 
 camera_url = "http://chronos.lan"
 
@@ -15,27 +15,35 @@ if post.reason == "OK" :
 else:
     print(post)
 
-filename = time.strftime("%Y%m%d%H%M%S", time.gmtime())+"_lightning.mp4"
 
-post = requests.get(camera_url+'/control/p/videoState')
-if post.json() != {'videoState':'filesave'}:
+try:
+	current_time = datetime.now()
 
-    post = requests.get(camera_url+'/control/p/state')
-    if post.json() == {'state':'recording'}:
-        post = requests.post(camera_url+'/control/stopRecording')
-        print("Stopping camera recording")
+	filename = current_time.strftime("%Y-%m-%d-%H-%M-%S.%f")+"-lightning.mp4"
 
-    elif post.json() == {'state':'idle'}:
-        print("Camera is already idle")
+	post = requests.get(camera_url+'/control/p/videoState')
+	if post.json() != {'videoState':'filesave'}:
 
-    else:
-        print(post.json())
+	    post = requests.get(camera_url+'/control/p/state')
+	    if post.json() == {'state':'recording'}:
+	        post = requests.post(camera_url+'/control/stopRecording')
+	        print("Stopping camera recording")
 
-    post = requests.post(camera_url+'/control/startFilesave', json = {'format': 'h264', 'device': 'mmcblk1p1', 'filename': filename })
-    if post.reason == "OK" :
-    	print("Saving the video")
-    else:
-        print("Unable to save the video")
-        print(post)
-else:
-    print("Camera is already saving the video. Do not disturb!")
+	    elif post.json() == {'state':'idle'}:
+	        print("Camera is already idle")
+
+	    else:
+	        print(post.json())
+
+	    post = requests.post(camera_url+'/control/startFilesave', json = {'format': 'h264', 'device': 'mmcblk1p1', 'filename': filename })
+	    if post.reason == "OK" :
+	    	print("Saving the video")
+	    else:
+	        print("Unable to save the video")
+	        print(post)
+	else:
+	    print("Camera is already saving the video. Do not disturb!")
+
+except requests.exceptions.HTTPError as e:
+    # Whoops it wasn't a 200
+    print("Error: " + str(e))
