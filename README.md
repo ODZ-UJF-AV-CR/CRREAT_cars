@@ -25,7 +25,7 @@ Scripts for parsing data from measurement devices mounted on cars for thundersto
   * Distrometer
   * GNSS position and orientation tracking
   * High-speed camera
-  * Gamma spectrometer
+  * Slavia detector
 
 ### CAR 2
 
