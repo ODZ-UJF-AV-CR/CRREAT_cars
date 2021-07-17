@@ -10,38 +10,34 @@ Scripts for parsing data from measurement devices mounted on cars for thundersto
 
 ### CAR 0
 
-![CRREAT CAR 0 in action](doc/img/CRREAT_CAR0.JPG)
+![CRREAT CAR 0 in action](doc/img/CRREAT_CAR0_2021.JPG)
 
   * Radio Storm Monitoring system  (four antennas)
   * Mobile Blitzortung Station for triggering
   * [Anemometer](https://github.com/mlab-modules/WINDGAUGE03)
   * [Distrometer](https://github.com/UniversalScientificTechnologies/DISTROMETER01)
   * GNSS position and orientation tracking
-  * [High-speed camera](https://www.krontech.ca/store/Chronos-1-4-High-Speed-Camera-p92268927)
+  * [High-speed camera](https://github.com/ODZ-UJF-AV-CR/CRREAT_cars/tree/master/chronos_camera)
+
 
 ### CAR 1
 
-  * [Anemometer](https://github.com/mlab-modules/WINDGAUGE03)
-  * Distrometer
-  * GNSS position and orientation tracking
-  * High-speed camera
-  * Slavia detector
-
-### CAR 2
+CRREAT car 1 is documented in the [own repository](https://github.com/ODZ-UJF-AV-CR/auto1)
 
   * [Anemometer](https://github.com/mlab-modules/WINDGAUGE03)
-  * Mobile Magnetic loop antenna
-  * Distrometer
+  * [Distrometer](https://github.com/UniversalScientificTechnologies/DISTROMETER01)
   * GNSS position and orientation tracking
-  * Gamma spectrometer
-
-
-## Equipment description
-
-
-### High speed camera
+  * [High-speed camera](https://github.com/ODZ-UJF-AV-CR/CRREAT_cars/tree/master/chronos_camera)
+  * Slavia detector with oscilloscope
+  * [Mobile Magnetic loop antenna](https://github.com/ODZ-UJF-AV-CR/CRREAT_cars/tree/master/magnetic_loop)
 
 ![High-speed whole sky camera](doc/img/high_speed_camera.jpg)
 
 
-[![Lightning capture demonstration video](https://img.youtube.com/vi/TS5qrMavIaQ/0.jpg)](https://youtu.be/TS5qrMavIaQ?t=18)
+### CAR 2
+
+  * [Anemometer](https://github.com/mlab-modules/WINDGAUGE03)
+  * [Mobile Magnetic loop antenna](https://github.com/ODZ-UJF-AV-CR/CRREAT_cars/tree/master/magnetic_loop)
+  * [Distrometer](https://github.com/UniversalScientificTechnologies/DISTROMETER01)
+  * GNSS position and orientation tracking
+  * Gamma spectrometer

@@ -1,8 +1,10 @@
 # Lightning video capture system  
 
-The system expect the Chronos high-speed camera mounted on car roof. The camera should be connected to 1Gigabit ethernet and powered from stable power source.
+The system expect the Chronos high-speed camera mounted on car roof. The camera should be connected to 1Gigabit Ethernet and powered from stable power source.
 The Recording mode should be activated manually from the camera web GUI.
 
+[![Lightning capture demonstration video](https://img.youtube.com/vi/zzwEuAdUSWs/0.jpg)](https://youtu.be/zzwEuAdUSWs?t=18)
+[![Lightning capture demonstration video](https://img.youtube.com/vi/TS5qrMavIaQ/0.jpg)](https://youtu.be/TS5qrMavIaQ?t=18)
 
 ## Installation
 
@@ -14,6 +16,8 @@ The Recording mode should be activated manually from the camera web GUI.
 ### Hardware
 
 [Chronos 1.4 camera](https://www.krontech.ca/store/Chronos-1-4-High-Speed-Camera-p92268927) is mounted in waterproof [SolidBox 69200](https://www.elima.cz/obchod/68200-krabice-solidbox-ip65-270x220x126mm-plne-viko-hladke-boky-famatel-p-34205.html).
+
+![High-speed whole sky camera](doc/img/camera_mount.jpg)
 
 Camera itself has wide angle CS lenses.
 
