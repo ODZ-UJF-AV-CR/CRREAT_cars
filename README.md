@@ -12,7 +12,7 @@ Scripts for parsing data from measurement devices mounted on cars for thundersto
 
 ![CRREAT CAR 0 in action](doc/img/CRREAT_CAR0_2021.JPG)
 
-  * Radio Storm Monitoring system  (four antennas)
+  * Radio Storm Monitoring system - four QFH antenna array
   * Mobile Blitzortung Station for triggering
   * [Anemometer](https://github.com/mlab-modules/WINDGAUGE03)
   * [Distrometer](https://github.com/UniversalScientificTechnologies/DISTROMETER01)
