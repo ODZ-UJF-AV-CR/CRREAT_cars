@@ -15,4 +15,4 @@ The antenna is mounted on board the car by multiple ways.
 
 ![Car roof mount](doc/img/car_roof_mount.jpg)
 
-In every case the antenna is directly connected to a oscilloscope input. The oscilloscope triggers from signal amplitude and pulse width.
+In every case the antenna is directly connected to a oscilloscope input. The oscilloscope triggers from signal amplitude and pulse width. There axist a [oscilloscope configuration file](https://github.com/ODZ-UJF-AV-CR/auto1/blob/main/osc/RigolSetup_slavia_utp.stp) containing the up-to-date configuration. 
