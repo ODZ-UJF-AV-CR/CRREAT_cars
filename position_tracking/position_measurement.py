@@ -50,18 +50,37 @@ def stream_ubx(**kwargs):
         while(True):
 
             ubr = UBXReader(stream1, ubxonly=ubxonly)
-            for (raw, parsed) in ubr:
-                if parsed.identity == 'NAV-RELPOSNED':
-                    print("Rover 1")
-                    print(parsed)
+            for (raw, rover1_parsed) in ubr:
+                if rover1_parsed.identity == 'NAV-RELPOSNED':
                     break
 
             ubr = UBXReader(stream2, ubxonly=ubxonly)
-            for (raw, parsed) in ubr:
-                if parsed.identity == 'NAV-RELPOSNED':
-                    print("Rover 2")
-                    print(parsed)
+            for (raw, rover2_parsed) in ubr:
+                if rover2_parsed.identity == 'NAV-RELPOSNED':
                     break
+
+
+            rover1_N = (rover1_parsed.relPosN + rover1_parsed.relPosHPN/100)/100  # Nord coordinates in meters
+            rover1_E = (rover1_parsed.relPosE + rover1_parsed.relPosHPE/100)/100
+            rover1_D = (rover1_parsed.relPosD + rover1_parsed.relPosHPD/100)/100
+
+            rover1_accN = rover1_parsed.accN/10000
+            rover1_accE = rover1_parsed.accE/10000
+            rover1_accD = rover1_parsed.accD/10000
+
+            rover2_N = (rover2_parsed.relPosN + rover2_parsed.relPosHPN/100)/100  # Nord coordinates in meters
+            rover2_E = (rover2_parsed.relPosE + rover2_parsed.relPosHPE/100)/100
+            rover2_D = (rover2_parsed.relPosD + rover2_parsed.relPosHPD/100)/100
+
+            rover2_accN = rover2_parsed.accN/10000
+            rover2_accE = rover2_parsed.accE/10000
+            rover2_accD = rover2_parsed.accD/10000
+
+
+            print("       Rover 1         " + "Rover 2")
+            print("N: " + "{:.4f}".format(rover1_N) + "±{:.4f}".format(rover1_accN) + " {:.4f}".format(rover2_N) + "±{:.4f}".format(rover2_accN))
+            print("E: " + "{:.4f}".format(rover1_E) + "±{:.4f}".format(rover1_accE) + " {:.4f}".format(rover2_E) + "±{:.4f}".format(rover2_accE))
+            print("D: " + "{:.4f}".format(rover1_D) + "±{:.4f}".format(rover1_accD) + " {:.4f}".format(rover2_D) + "±{:.4f}".format(rover2_accD))
 
     except KeyboardInterrupt:
         print("\nStreaming terminated by user\n")
