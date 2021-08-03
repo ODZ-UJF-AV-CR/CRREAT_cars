@@ -182,20 +182,25 @@ def plotrec(h, samples, synclog, fn, pre_trigger_blocks=10, post_trigger_blocks=
     ax1.xaxis.set_major_locator(ticker)
     ax1.xaxis.set_major_formatter(formatter)
 
-    ax1.plot(range(a, b), samples[a:b,0:2], linestyle="",marker="o", markersize=1)
+    ax1.plot(range(a, b), samples[a:b,0:2], linestyle="",marker="o", alpha=.05, markersize=1)
     ax1.set_title("Channels 0 and 1")
+    ax1.set_xlabel('')
     wf_plotrec(samples[a:b,0] + 1j*samples[a:b,1], 10e6, bins=8192, ax=ax2, offset=a)
 
-    ax3.plot(range(a, b), samples[a:b,2:4], linestyle="", marker="o", markersize=1)
+
+    ax3.plot(range(a, b), samples[a:b,2:4], linestyle="", marker="o", alpha=.05, markersize=1)
     ax3.set_title("Channels 2 and 3")
+    ax3.set_xlabel('')
     wf_plotrec(samples[a:b,2] + 1j*samples[a:b,3], 10e6, bins=8192, ax=ax4, offset=a)
 
-    ax5.plot(range(a, b), samples[a:b,4:6], linestyle="", marker="o", markersize=1)
+    ax5.plot(range(a, b), samples[a:b,4:6], linestyle="", marker="o", alpha=.05, markersize=1)
     ax5.set_title("Channels 4 and 5")
+    ax5.set_xlabel('')
     wf_plotrec(samples[a:b,4] + 1j*samples[a:b,5], 10e6, bins=8192, ax=ax6, offset=a)
 
-    ax7.plot(range(a, b), samples[a:b,6:8], linestyle="", marker="o", markersize=1)
+    ax7.plot(range(a, b), samples[a:b,6:8], linestyle="", marker="o", alpha=.05, markersize=1)
     ax7.set_title("Channels 6 and 7")
+    ax7.set_xlabel('')
     wf_plotrec(samples[a:b,6] + 1j*samples[a:b,7], 10e6, bins=8192, ax=ax8, offset=a)
     
     at, bt = s2t(a), s2t(b)
