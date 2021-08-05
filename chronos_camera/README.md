@@ -3,8 +3,16 @@
 The system expect the Chronos high-speed camera mounted on car roof. The camera should be connected to 1Gigabit Ethernet and powered from stable power source.
 The Recording mode should be activated manually from the camera web GUI.
 
+## Example videos
+
+### Daytime thunderstorm
+
 [![Lightning capture demonstration video](https://img.youtube.com/vi/zzwEuAdUSWs/0.jpg)](https://youtu.be/zzwEuAdUSWs?t=18)
 [![Lightning capture demonstration video](https://img.youtube.com/vi/TS5qrMavIaQ/0.jpg)](https://youtu.be/TS5qrMavIaQ?t=18)
+
+### Nigth thunderstorm 
+
+[![Lightning capture demonstration video](https://img.youtube.com/vi/mmvze8V5GRg/0.jpg)](https://youtu.be/mmvze8V5GRg?t=2)
 
 ## Installation
 
