@@ -3,8 +3,16 @@
 The system expect the Chronos high-speed camera mounted on car roof. The camera should be connected to 1Gigabit Ethernet and powered from stable power source.
 The Recording mode should be activated manually from the camera web GUI.
 
+## Example videos
+
+### Daytime thunderstorm
+
 [![Lightning capture demonstration video](https://img.youtube.com/vi/zzwEuAdUSWs/0.jpg)](https://youtu.be/zzwEuAdUSWs?t=18)
 [![Lightning capture demonstration video](https://img.youtube.com/vi/TS5qrMavIaQ/0.jpg)](https://youtu.be/TS5qrMavIaQ?t=18)
+
+### Nigth thunderstorm 
+
+[![Lightning capture demonstration video](https://img.youtube.com/vi/mmvze8V5GRg/0.jpg)](https://youtu.be/mmvze8V5GRg?t=2)
 
 ## Installation
 
@@ -15,7 +23,7 @@ The Recording mode should be activated manually from the camera web GUI.
 
 ### Hardware
 
-[Chronos 1.4 camera](https://www.krontech.ca/store/Chronos-1-4-High-Speed-Camera-p92268927) is mounted in waterproof [SolidBox 69200](https://www.elima.cz/obchod/68200-krabice-solidbox-ip65-270x220x126mm-plne-viko-hladke-boky-famatel-p-34205.html).
+[Chronos 1.4 camera](https://www.krontech.ca/store/Chronos-1-4-High-Speed-Camera-p92268927) is mounted in waterproof [SolidBox 69200](https://www.elima.cz/obchod/68200-krabice-solidbox-ip65-270x220x126mm-plne-viko-hladke-boky-famatel-p-34205.html). The box is covered by plexiglass dome [Duradom 200mm](https://www.amazon.com/CATLAB-Acrylic-Flange-Plastic-Hemisphere/dp/B07DNVWRHP)
 
 ![High-speed whole sky camera](doc/img/camera_mount.jpg)
 
