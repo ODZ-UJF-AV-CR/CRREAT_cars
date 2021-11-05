@@ -96,8 +96,8 @@ def assign_time_axis(fn, header, synclog):
 	s2t = lambda s: tick_time + pd.Timedelta((s - tick_pos)/sps, 'seconds')
     
 	#print(approx_trigger_time, s2t(approx_trigger_pos))
-	
-	return t2s, s2t, TimeTickLocator(t2s, s2t), FuncFormatter(lambda x, _: s2t(x).strftime("%H:%M:%S.%f"))
+    
+	return t2s, s2t, TimeTickLocator(t2s, s2t), FuncFormatter(lambda x, _: s2t(x).strftime("%H:%M:%S.%f")[:-4])
 
 from matplotlib import pyplot as plt
 import scipy.signal
