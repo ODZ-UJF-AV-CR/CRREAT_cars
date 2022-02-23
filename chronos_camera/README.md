@@ -23,7 +23,7 @@ The Recording mode should be activated manually from the camera web GUI.
 
 ### Hardware
 
-[Chronos 1.4 camera](https://www.krontech.ca/store/Chronos-1-4-High-Speed-Camera-p92268927) is mounted in waterproof [SolidBox 69200](https://www.elima.cz/obchod/68200-krabice-solidbox-ip65-270x220x126mm-plne-viko-hladke-boky-famatel-p-34205.html). The box is covered by plexiglass dome [Duradom 200mm](https://www.amazon.com/CATLAB-Acrylic-Flange-Plastic-Hemisphere/dp/B07DNVWRHP)
+[Chronos 1.4 camera CR14-1.0-16M](https://www.krontech.ca/product/chronos-1-4-high-speed-camera) is mounted in waterproof [SolidBox 69200](https://www.elima.cz/obchod/68200-krabice-solidbox-ip65-270x220x126mm-plne-viko-hladke-boky-famatel-p-34205.html). The box is covered by plexiglass dome [Duradom 200mm](https://www.amazon.com/CATLAB-Acrylic-Flange-Plastic-Hemisphere/dp/B07DNVWRHP)
 
 ![High-speed whole sky camera - Waterproof box with camera mount](doc/img/camera_mount.jpg)
 
