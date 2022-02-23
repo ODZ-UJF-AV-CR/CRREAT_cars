@@ -27,7 +27,7 @@ The Recording mode should be activated manually from the camera web GUI.
 
 ![High-speed whole sky camera - Waterproof box with camera mount](doc/img/camera_mount.jpg)
 
-Camera itself has wide angle CS lenses. Power of the camera is delivered from 12V car on-board socket. The camera requires 20V as power input. Therefore the power voltage is converted by [power supply converter](https://www.alza.cz/EN/auto/oem-power-supply-converter-for-laptops-12-30v-90w-d6269710.htm)
+Camera itself has wide angle CS [FE185C057HA-1](https://www.bhphotovideo.com/c/product/404281-REG/Fujinon_FE185C057HA1_FE185C057HA_1_2_3_1_8mm_F_1_4.html) lenses. Power of the camera is delivered from 12V car on-board socket. The camera requires 20V as power input. Therefore the power voltage is converted by [power supply converter](https://www.alza.cz/EN/auto/oem-power-supply-converter-for-laptops-12-30v-90w-d6269710.htm)
 
 ## Usage
 
