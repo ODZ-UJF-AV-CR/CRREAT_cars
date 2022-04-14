@@ -1,4 +1,4 @@
-# Lightning video capture system  
+# All-sky Lightning video capture system  
 
 The system expect the Chronos high-speed camera mounted on car roof. The camera should be connected to 1Gigabit Ethernet and powered from stable power source.
 The Recording mode should be activated manually from the camera web GUI.
