@@ -20,7 +20,6 @@ The Recording mode should be activated manually from the camera web GUI.
 
     sudo apt-get install python-requests
 
-
 ### Hardware
 
 [Chronos 1.4 camera CR14-1.0-16M](https://www.krontech.ca/product/chronos-1-4-high-speed-camera) is mounted in waterproof [SolidBox 69200](https://www.elima.cz/obchod/68200-krabice-solidbox-ip65-270x220x126mm-plne-viko-hladke-boky-famatel-p-34205.html). The box is covered by plexiglass dome [Duradom 200mm](https://www.amazon.com/CATLAB-Acrylic-Flange-Plastic-Hemisphere/dp/B07DNVWRHP)
@@ -44,3 +43,23 @@ This script disable camera LCD to save power and then save the recorded video fr
 I the case the LCD needs to be activated again. It could be done by different script
 
     ./reenable_LCD.py
+
+
+## Camera software 
+
+
+
+### Eneable SSHFS
+
+SSHFS support is not enabled in the firmware that supplies KRONTECH, this can be eneabled easily by modifying the OpenSSH server configuration.
+
+The following line needs to be added to the **beginning** of the file `/etc/ssh/sshd_config`. It is very important to place this text at the beginning of the file before the next configuration.
+
+```
+Subsystem sftp /usr/lib/openssh/sftp-server
+```
+
+The configuration can be validated by restarting the sshd server
+```
+service sshd restart
+```
