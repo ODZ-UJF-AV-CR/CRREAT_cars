@@ -1,0 +1,8 @@
+[Unit]
+Description=CAR CARDOS logger
+
+[Service]
+ExecStart=/home/kaklik/repos/CRREAT_cars/cardos/log_cardos.sh
+
+[Install]
+WantedBy=multi-user.target

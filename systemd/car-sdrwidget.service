@@ -1,0 +1,9 @@
+[Unit]
+Description=CAR DISTROMETER service
+
+[Service]
+Environment=station=CAR2
+ExecStart=/home/kaklik/repos/DISTROMETER01/sw/start.sh
+
+[Install]
+WantedBy=multi-user.target

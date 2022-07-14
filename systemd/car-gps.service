@@ -1,0 +1,8 @@
+[Unit]
+Description=CAR GPS logger
+
+[Service]
+ExecStart=/home/kaklik/repos/CRREAT_cars/gps/gpslog.sh
+
+[Install]
+WantedBy=multi-user.target
