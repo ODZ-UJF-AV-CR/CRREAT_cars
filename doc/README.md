@@ -5,3 +5,5 @@
 Power input source is [ISO 11446 connector](https://en.wikipedia.org/wiki/ISO_11446)
 
 ![Power input cable](power_input_cable/power_input.svg)
+
+schematics created by [WireViz](https://github.com/formatc1702/WireViz).
