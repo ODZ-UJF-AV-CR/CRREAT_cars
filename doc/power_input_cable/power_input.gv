@@ -71,10 +71,10 @@ graph {
 > fillcolor="#FFFFFF" shape=box style=filled]
 	edge [color="#000000:#895956:#000000"]
 	X1:p9r:e -- C1:w1:w
-	C1:w1:e -- X2:p1l:w
+	C1:w1:e -- X2:p3l:w
 	edge [color="#000000:#0066ff:#000000"]
 	X1:p13r:e -- C1:w2:w
-	C1:w2:e -- X2:p3l:w
+	C1:w2:e -- X2:p1l:w
 	C1 [label=<
 <table border="0" cellspacing="0" cellpadding="0">
  <tr><td>
@@ -97,7 +97,7 @@ graph {
     <td>
      1:BN
     </td>
-    <td>X2:1</td>
+    <td>X2:3</td>
    </tr>
    <tr>
     <td colspan="3" border="0" cellspacing="0" cellpadding="0" port="w1" height="6">
@@ -113,7 +113,7 @@ graph {
     <td>
      2:BU
     </td>
-    <td>X2:3</td>
+    <td>X2:1</td>
    </tr>
    <tr>
     <td colspan="3" border="0" cellspacing="0" cellpadding="0" port="w2" height="6">
@@ -126,6 +126,11 @@ graph {
    </tr>
    <tr><td>&nbsp;</td></tr>
   </table>
+ </td></tr>
+ <tr><td>
+  <table border="0" cellspacing="0" cellpadding="3" cellborder="1"><tr>
+   <td balign="left">length needs to be verified</td>
+  </tr></table>
  </td></tr>
 </table>
 > fillcolor="#FFFFFF" shape=box style=filled]

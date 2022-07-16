@@ -21,9 +21,10 @@ cables:
     gauge: 1.5 mm2
     colors: [BN,BU]
     length: 1.5
+    notes:  length needs to be verified
 
 connections:
   -
     - X1: [9,13]
     - C1: [1,2]
-    - X2: [1,3]
+    - X2: [3,1]
