@@ -3,7 +3,7 @@
 connectors:
   X1:
     type: ISO 11446, W12-T13-61 TESAT
-    subtype: female
+    subtype: male
     hide_disconnected_pins: True
     pincount: 13
     notes: Unconnected pins are not shown
