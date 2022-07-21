@@ -9,3 +9,9 @@ Konfigurac je uložena v [tomto]() repozitáři a do systému se zavádí pomoc�
 ```
 ln -s /home/kaklik/repos/CRREAT_cars/systemd/CAR2_env.conf /etc/environment.d/00-creeat.conf
 ```
+
+## Proměnné
+
+Seznam proměnných, které by měly obsahovat věchny konfigurace:
+
+* **STATION** - název detekční stanice, např CAR0
