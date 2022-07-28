@@ -30,9 +30,9 @@ CRREAT car 1 is documented in the [own repository](https://github.com/ODZ-UJF-AV
   * [High-speed camera](https://github.com/ODZ-UJF-AV-CR/CRREAT_cars/tree/master/chronos_camera)
   * Slavia detector with oscilloscope
   * [Mobile Magnetic loop antenna](https://github.com/ODZ-UJF-AV-CR/CRREAT_cars/tree/master/magnetic_loop)
+  * [Scintillation ionising radiation detector](https://github.com/ODZ-UJF-AV-CR/CARDOS01)
 
 ![High-speed whole sky camera](doc/img/high_speed_camera.jpg)
-
 
 ### CAR 2
 
