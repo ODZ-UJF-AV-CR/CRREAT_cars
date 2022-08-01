@@ -20,9 +20,10 @@ The Recording mode should be activated manually from the camera web GUI.
 
     sudo apt-get install python-requests
 
+
 ### Hardware
 
-[Chronos 1.4 camera CR14-1.0-16M](https://www.krontech.ca/product/chronos-1-4-high-speed-camera) is mounted in waterproof [SolidBox 69200](https://www.elima.cz/obchod/68200-krabice-solidbox-ip65-270x220x126mm-plne-viko-hladke-boky-famatel-p-34205.html). The box is covered by plexiglass dome [Duradom 200mm](https://www.amazon.com/CATLAB-Acrylic-Flange-Plastic-Hemisphere/dp/B07DNVWRHP)
+[Chronos 1.4 camera CR14-1.0-16M](https://www.krontech.ca/product/chronos-1-4-high-speed-camera) is mounted in waterproof [SolidBox 69200](https://www.elima.cz/obchod/68200-krabice-solidbox-ip65-270x220x126mm-plne-viko-hladke-boky-famatel-p-34205.html). The box is covered by plexiglass dome ~~[Duradom 200mm](https://www.amazon.com/CATLAB-Acrylic-Flange-Plastic-Hemisphere/dp/B07DNVWRHP)~~[Dahua SD50 bubble](https://www.asm.cz/cs/228337-dahua-bublina-kopule-plexi-pro-ptz-kamery-rady-sd50-napr-sd50230u).
 
 ![High-speed whole sky camera - Waterproof box with camera mount](doc/img/camera_mount.jpg)
 
@@ -62,4 +63,25 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 The configuration can be validated by restarting the sshd server
 ```
 service sshd restart
+```
+
+
+
+## Data processing 
+
+Batch conversion of .raw files to directory with TIFFs:
+```
+for f in *.raw; do ~/convert_raw12.sh $f & done
+```
+
+
+
+Skript pro prevod slozek s TIFFy na MP4: 
+
+```
+for f in */; do ffmpeg -i ${f}_%06d.tiff -crf 0 ${f::-1}.mp4; done
+```
+
+```
+for f in */; do ffmpeg -i ${f}_%06d.tiff -nostdin -loglevel panic -crf 0 ${f::-1}.mp4& done
 ```

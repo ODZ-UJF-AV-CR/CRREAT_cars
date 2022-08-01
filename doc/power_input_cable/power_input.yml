@@ -1,0 +1,30 @@
+# contributed by @elliotmr
+
+connectors:
+  X1:
+    type: ISO 11446, W12-T13-61 TESAT
+    subtype: male
+    hide_disconnected_pins: True
+    pincount: 13
+    notes: Unconnected pins are not shown
+
+  X2:
+    type: XLR
+    subtype: female
+    pincount: 3
+    hide_disconnected_pins: False
+    notes:  AC3F AMPHENOL
+
+cables:
+  C1:
+    wirecount: 2
+    gauge: 1.5 mm2
+    colors: [BN,BU]
+    length: 1.5
+    notes:  length needs to be verified
+
+connections:
+  -
+    - X1: [9,13]
+    - C1: [1,2]
+    - X2: [3,1]

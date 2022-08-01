@@ -1,0 +1,9 @@
+[Unit]
+Description=CAR DISTROMETER service
+
+[Service]
+EnvironmentFile=-/etc/environment.d/00-crreat.conf
+ExecStart=/home/kaklik/repos/DISTROMETER01/sw/start.sh
+
+[Install]
+WantedBy=multi-user.target
