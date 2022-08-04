@@ -43,8 +43,8 @@ def stream_ubx(**kwargs):
         f"{'raw' if rawformat else 'parsed'} format...\n",
     )
 
-    stream1 = Serial(rover1, baud, timeout=timeout)
-    stream2 = Serial(rover2, baud, timeout=timeout)
+    stream1 = Serial(rover1, baud, timeout=timeout, exclusive=False)
+    stream2 = Serial(rover2, baud, timeout=timeout, exclusive=False)
 
     try:
         while(True):
