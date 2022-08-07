@@ -13,4 +13,4 @@ schematics created by [WireViz](https://github.com/formatc1702/WireViz).
 
 ![GPS, Omnia, RSMS](omnia_gps_connection/omnia_gps_connection.svg)
 
-<img src="omnia_gps_connection/omnia_gps.jpg" width="480"/> <img src="omnia_gps_connection/omnia_gps_2.jpg" width="200"/> 
+<img src="omnia_gps_connection/omnia_gps.jpg" width="650"/> <img src="omnia_gps_connection/omnia_gps_2.jpg" width="275"/> 
