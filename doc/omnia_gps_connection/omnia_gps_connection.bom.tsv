@@ -1,0 +1,6 @@
+Id	Description	Qty	Unit	Designators
+1	Cable, 2 wires	0	m	
+2	Cable, 5 wires	0	m	
+3	Connector, MLAB GPS02B, x, 5 pins	1		GPS
+4	Connector, Turris omnia, GPIO, 20 pins	1		O
+5	Connector, UST RSMS02, TTL-LVDS, 4 pins	1		RSMS
