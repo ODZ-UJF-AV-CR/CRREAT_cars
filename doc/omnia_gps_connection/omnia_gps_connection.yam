@@ -39,3 +39,17 @@ connections:
     - GPS: [1,3]
     - MW_2: [1,2]
     - RSMS: [1,2]
+
+tweak:
+  override:
+    graph:
+      ranksep: "1"  # Reduce the horizontal spacing (default 2)
+    MW_1:
+      shape: none  # Hide the surrounding frame
+      fontsize: "0.1"  # Reduce the space needed for text
+      fontcolor: white  # Same as background to hide the text
+    MW_2:
+      shape: none  # Hide the surrounding frame
+      fontsize: "0.1"  # Reduce the space needed for text
+      fontcolor: white  # Same as background to hide the text
+
