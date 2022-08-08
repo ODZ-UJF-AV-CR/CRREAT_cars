@@ -36,15 +36,15 @@ def stream_ubx(**kwargs):
     rover2 = kwargs.get("rover2_port", rover2_port).strip('"')
     baud = int(kwargs.get("baud", BAUD))
     timeout = int(kwargs.get("timeout", TIMEOUT))
-    ubxonly = int(kwargs.get("ubxonly", 0))
+    ubxonly = int(kwargs.get("ubxonly", 1))
     rawformat = int(kwargs.get("raw", 0))
     print(
         f"\nStreaming from {rover2_port} at {baud} baud in",
         f"{'raw' if rawformat else 'parsed'} format...\n",
     )
 
-    stream1 = Serial(rover1, baud, timeout=timeout)
-    stream2 = Serial(rover2, baud, timeout=timeout)
+    stream1 = Serial(rover1, baud, timeout=timeout, exclusive=False)
+    stream2 = Serial(rover2, baud, timeout=timeout, exclusive=False)
 
     try:
         while(True):
@@ -81,6 +81,7 @@ def stream_ubx(**kwargs):
             print("N: " + "{:.4f}".format(rover1_N) + "±{:.4f}".format(rover1_accN) + " {:.4f}".format(rover2_N) + "±{:.4f}".format(rover2_accN))
             print("E: " + "{:.4f}".format(rover1_E) + "±{:.4f}".format(rover1_accE) + " {:.4f}".format(rover2_E) + "±{:.4f}".format(rover2_accE))
             print("D: " + "{:.4f}".format(rover1_D) + "±{:.4f}".format(rover1_accD) + " {:.4f}".format(rover2_D) + "±{:.4f}".format(rover2_accD))
+            print(rover1_parsed)
 
     except KeyboardInterrupt:
         print("\nStreaming terminated by user\n")

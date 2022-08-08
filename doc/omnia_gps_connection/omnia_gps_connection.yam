@@ -1,0 +1,55 @@
+connectors:
+  O:
+    pincount: 20
+    type: Turris omnia
+    subtype: GPIO
+    pinlabels: [SPI0, SPI0_SCK, SPI0_MOSI, SPI0_MISO, UART1_RxD, UART1_TxD, I2C6_SDA, I2C6_SCL, 3v3, GND, GPIO18, GPIO33, GPIO34, GPIO35, GPIO36, GPIO42, GPIO44, GPIO47, GPIO51, GPIO56]
+  GPS:
+    type: MLAB GPS02B
+    subtype: x
+    pincount: 5
+    pinlabels: [GND, 3v3, TPL, TxD, RxD]
+  RSMS:
+    type: UST RSMS02
+    subtype: TTL-LVDS
+    pincount: 4
+    pinlabels: [GND, TTL0, TTL1, GND]
+
+cables:
+  MW_1:
+    wirecount: 5
+    show_name: false
+    show_wirecount: false
+    colors: [GY, BN, OG, BK, WH]
+
+  MW_2:
+    wirecount: 2
+    colors: [BK, PK]
+    show_name: false
+    show_wirecount: false
+    
+
+connections:
+  -
+    - O: [5, 6, 9, 10, 11]
+    - MW_1: [1, 2, 3, 4, 5]
+    - GPS: [4, 5, 2, 1, 3]
+
+  -
+    - GPS: [1,3]
+    - MW_2: [1,2]
+    - RSMS: [1,2]
+
+tweak:
+  override:
+    graph:
+      ranksep: "1"  # Reduce the horizontal spacing (default 2)
+    MW_1:
+      shape: none  # Hide the surrounding frame
+      fontsize: "0.1"  # Reduce the space needed for text
+      fontcolor: white  # Same as background to hide the text
+    MW_2:
+      shape: none  # Hide the surrounding frame
+      fontsize: "0.1"  # Reduce the space needed for text
+      fontcolor: white  # Same as background to hide the text
+
