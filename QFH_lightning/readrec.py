@@ -16,7 +16,9 @@ syncposdt = np.dtype([
 ])
 
 def loadrec(file, skipsamples=False):
-	head = np.frombuffer(file.read(headerdt.itemsize), dtype=headerdt)[0]
+	head = np.frombuffer(file.read(headerdt.itemsize), dtype=headerdt)
+    print(type(head), head)
+    head = head[0]
 	samplebytes = (head['preTrigger'] + head['postTrigger']) * head['descSpan']
 	if skipsamples:
 		samples = None
@@ -208,5 +210,59 @@ def plotrec(h, samples, synclog, fn, pre_trigger_blocks=10, post_trigger_blocks=
         if t > at and t < bt:
             for ax in [ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8]:
                 ax.axvline(x=t2s(t), color='purple', ls='--')
+return fig
+
+
+def axis_plotrec(axis, signal_samples, a, b, ticker, formatter, title):
+    
+    axis.xaxis.set_major_locator(ticker)
+    axis.xaxis.set_major_formatter(formatter)
+    axis.plot(range(a, b), signal_samples, linestyle="", marker="o", alpha=0.5, markersize=1)
+
+    axis.set_title(title)
+    axis.set_xlabel('')
+    
+    axis.set_ylim(-8000, 8000)
+    axis.grid()        
+
+    threshold = 2000
+
+    #z_score = abs(signal_samples - start_noise_mean) / start_noise_std
+    start_i = np.argmax(np.abs(signal_samples) > threshold) 
+    stop_i = len(signal_samples) - np.argmax(np.flip(np.abs(signal_samples) > threshold) )
+
+    event_duration = (start_i-stop_i)/sps
+    axis.text(start_i, 6000,"Event Duration: {0:.3g} s".format(event_duration), fontsize=15)
+    axis.axvspan(start_i+a,stop_i+a, facecolor='green', alpha=0.2)
+
+    # Tohle nefunguje spravne 
+    axis.axvline(x=(h['preTrigger']), color='b')
+
+
+    
+def selective_plotrec(h, samples, synclog, fn, pre_trigger_blocks=10, post_trigger_blocks=5, title=None, marktimes=[], channels = []):
+    t2s, s2t, ticker, formatter = assign_time_axis(fn, h, synclog)
+    
+    print(h)
+    
+        
+    fig, (ax7) = plt.subplots(figsize=(28, 20), nrows=len(channels), sharex=True)
+    if title is not None:
+        fig.suptitle(title)
+    
+    for i, ch in enumerate(channels):
+        
+        #if pre_trigger_blocks > h['preTrigger']:
+        pre_trigger_blocks = h['preTrigger']
+        #if post_trigger_blocks > h['postTrigger']:
+        post_trigger_blocks = h['postTrigger']
+
+        a = (h['preTrigger']-pre_trigger_blocks)*h['descSpan']//16 #select block of samples before trigger
+        b = (h['preTrigger']+post_trigger_blocks)*h['descSpan']//16  #select blocks after trigger 
+
+        signal_samples = samples[a:b,ch]
+        print(a, b, len(samples[:,0]))
+        
+        axis_plotrec(ax7[i], signal_samples, a, b, ticker, formatter, str("channel: {}".format(ch)))
+
     return fig
-    #plt.show()
