@@ -13,4 +13,6 @@ schematics created by [WireViz](https://github.com/formatc1702/WireViz).
 
 ![GPS, Omnia, RSMS](omnia_gps_connection/omnia_gps_connection.svg)
 
+![Turris Omnia GPIO pinout](https://wiki.turris.cz/doc/_media/omnia-pinout.png)
+
 <img src="omnia_gps_connection/omnia_gps.jpg" width="650"/> <img src="omnia_gps_connection/omnia_gps_2.jpg" width="275"/> 
