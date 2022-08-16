@@ -1,7 +1,9 @@
 #!/bin/bash
 echo "CARDOS01 data logger"
 echo "To exit, pres ctrl-a, ctrl-x"
-echo " "
+echo "Waiting for time sync.. "
+chronyc -h 192.168.1.2,::1 waitsync 0 0.1 0.0 1
+echo "Time synchronized"
 
 
 # Set if not exists
