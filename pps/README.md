@@ -31,7 +31,7 @@ Pak je potřeba nastavit GPIO jako vstupní port (U tohoto si nejsem jistý, jes
 Nejdříve je vhdoné si starý devicetree zazálohovat. Následně původní device tree rozbalit a provést v něm úpravy. 
 ```
 cd /boot 
-cp armada-385-turris-omnia-phy.dbt armada-385-turris-omnia-phy_backu.dbt
+cp armada-385-turris-omnia-phy.dtb armada-385-turris-omnia-phy_backu.dtb
 dtc -I dtb -O dts -f armada-385-turris-omnia-phy.dtb -o armada-385-turris-omnia-phy.dts
 vi armada-385-turris-omnia-phy.dts
 ```
@@ -53,7 +53,7 @@ Na konec souboru (před poslední závorku, na stejnou úroveň jako je napřík
 
 Po uložení souboru musíme devicetree zase zabalit příkazem
 ```
-dtc -I dts -O dtb -f armada-385-turris-omnia-phy.dbs -o armada-385-turris-omnia-phy.dbt
+dtc -I dts -O dtb -f armada-385-turris-omnia-phy.dts -o armada-385-turris-omnia-phy.dtb
 ```
 
 Nyní je potřeba Omnii zrestartovat. 
