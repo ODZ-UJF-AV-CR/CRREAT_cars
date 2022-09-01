@@ -75,7 +75,7 @@ Pokud chceme ověřit, že počítač detekuje PPS signály, tak to lze udělat 
 
 
 
-## Instalace pomocí DeviceTree Overlay
+## Instalace pomocí DeviceTree Overlay (Nefunkční postup)
 Tento způsob by měl pomoct, aby se nemusel devicetree upravovat po aktualizaci omnie. 
 * soubor `[pps_overlay.dtso](CRREAT_cars/pps/pps_overlay.dtso)` zkopírovat do `/boot`
 * Zabalit ho příkazem `dtc -@ -I dts -O dtb -o /boot/overlays/pps_overlay.dtbo /boot/pps_overlay.dtso`
