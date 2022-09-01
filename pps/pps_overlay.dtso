@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+/ {
+	fragment@0 {
+		target-path = "/soc/internal-regs/gpio@18100";
+		__overlay__ {
+			linux,phandle = <0x1e>;
+			phandle = <0x1e>;
+		};
+	};
+	fragment@1 {
+		target-path = "/soc";
+		__overlay__ {
+			pps@18 {
+				gpios = <0x1e 0x12 0x0>;
+				compatible = "pps-gpio";
+				status = "okay";
+			};
+		};
+	};
+
+};
