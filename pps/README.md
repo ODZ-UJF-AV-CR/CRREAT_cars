@@ -21,11 +21,13 @@ nejdříve je potřeba nainstalovat určité balíčky. To lze přimo z repozit�
  opkg install pps-tools kmod-pps kmod-pps-gpio dtc
 ```
 
-Pak je potřeba nastavit GPIO jako vstupní port (U tohoto si nejsem jistý, jestli je to opravdu nutné. Bylo by fajn, kdyby tento postup někdo zopakoval bez tohoto kusu kódu)
-```
- echo 18 > /sys/class/gpio/export
- echo in > /sys/class/gpio/gpio18/direction
-```
+
+> Tohle pravděpodobně není nutné dělat. Ale nechávám to tu pro případ, že by něco nefungovalo správně
+> ```
+>  echo 18 > /sys/class/gpio/export
+>  echo in > /sys/class/gpio/gpio18/direction
+> ```
+
 
 #### DeviceTree
 Nejdříve je vhdoné si starý devicetree zazálohovat. Následně původní device tree rozbalit a provést v něm úpravy. 
