@@ -5,14 +5,22 @@ from base64 import b64encode
 from hashlib import sha256
 from datetime import datetime
 import requests
+import gpsd, os, time
 
 callsign_init = False
 url_habitat_uuids = "http://habitat.habhub.org/_uuids?count=%d"
 url_habitat_db = "http://habitat.habhub.org/habitat/"
-callsign = "CRREAT_"+os.environ.get('STATION', 'CARx'))
+callsign = "CRREAT_"+os.environ.get('STATION', 'CARx')
 uuids = []
 
 
+gpsd.connect(host = "192.168.1.1")
+pos = gpsd.get_current()
+print(pos.mode)
+print(pos.lat)
+print(pos.lon)
+print(pos.alt)
+print(pos.speed)
 
 def ISOStringNow():
     return "%sZ" % datetime.utcnow().isoformat()
@@ -81,19 +89,24 @@ def init_callsign():
 
 
 def uploadPosition():
+    pos = gpsd.get_current()
+    if not pos.mode:
+        print("Neni fix", pos)
+        return
+
     doc = {
         'type': 'listener_telemetry',
         'time_created': ISOStringNow(),
         'data': {
             'callsign': callsign,
             'chase': True,
-            'latitude': 14,
-            'longitude': 50,
-            'altitude': 300,
-            'speed': 0,
+            'latitude': pos.lat,
+            'longitude': pos.lon,
+            'altitude': pos.alt,
+            'speed': pos.hspeed,
         }
     }
-
+    print(doc)
     # post position to habitat
     try:
         print(postData(doc))
@@ -105,4 +118,11 @@ def uploadPosition():
 
 
 init_callsign()
-uploadPosition()
+
+while True:
+    print("Pokus o odeslani polohy")
+    try:
+        uploadPosition()
+        time.sleep(10)
+    except Exception as e:
+        print("Nepovedlo se", e)
