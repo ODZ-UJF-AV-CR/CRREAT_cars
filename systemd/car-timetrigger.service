@@ -1,0 +1,9 @@
+[Unit]
+Description=CAR CARDOS logger
+
+[Service]
+EnvironmentFile=-/etc/environment.d/00-creeat.conf
+ExecStart=python3 /root/repos/CRREAT_cars/gps/triggermarks.py
+
+[Install]
+WantedBy=multi-user.target

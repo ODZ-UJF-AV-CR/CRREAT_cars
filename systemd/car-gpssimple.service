@@ -1,0 +1,11 @@
+[Unit]
+Description=CAR GPS simple logger
+
+[Service]
+#Wants=gpsd.service
+#After=gpsd.service
+EnvironmentFile=-/etc/environment.d/00-creeat.conf
+ExecStart=/root/repos/CRREAT_cars/gps/gpslog_simple.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=CAR HABHUB tracker
+
+[Service]
+EnvironmentFile=-/etc/environment.d/00-creeat.conf
+ExecStart=python3 /root/repos/CRREAT_cars/gps/habhub.py
+
+[Install]
+WantedBy=multi-user.target
