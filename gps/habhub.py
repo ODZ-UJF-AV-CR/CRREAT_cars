@@ -3,7 +3,7 @@ import urllib
 import json, sys, time, traceback
 from base64 import b64encode
 from hashlib import sha256
-from datetime import datetime
+import datetime
 import requests
 import gpsd, os, time
 
@@ -13,6 +13,11 @@ url_habitat_db = "http://habitat.habhub.org/habitat/"
 callsign = "CRREAT_"+os.environ.get('STATION', 'CARx')
 uuids = []
 
+file_path="/data/habhub/"
+station = os.environ.get('STATION', "CARx")
+os.makedirs(file_path, exist_ok=True)
+file_name = file_path + station + "_HABHUB_" + datetime.datetime.utcnow().strftime("%Y%m%d_%H%M%S")+".csv"
+file=open(file_name, "a")
 
 gpsd.connect(host = "192.168.1.1")
 pos = gpsd.get_current()
@@ -23,9 +28,7 @@ print(pos.alt)
 print(pos.speed)
 
 def ISOStringNow():
-    return "%sZ" % datetime.utcnow().isoformat()
-
-
+    return "%sZ" % datetime.datetime.utcnow().isoformat()
 
 def postData(doc):
     # do we have at least one uuid, if not go get more
@@ -45,10 +48,6 @@ def postData(doc):
             }
 
     print("Posting doc to habitat\n%s" % json.dumps(data, indent=2))
-
-    # req = urllib.request.Request(url_habitat_db, data, headers)
-    # return urllib.request.urlopen(req, timeout=10).read()
-
 
     x = requests.post(url_habitat_db, data=data, headers = headers)
     return x.text
@@ -90,6 +89,17 @@ def init_callsign():
 
 def uploadPosition():
     pos = gpsd.get_current()
+    print(pos)
+
+    file.write(datetime.datetime.utcnow().isoformat()+",")
+    file.write(str(pos.lat)+","),
+    file.write(str(pos.lon)+","),
+    file.write(str(pos.alt)+","),
+    file.write(str(pos.hspeed)+","),
+    file.write(str(pos.mode)+",")
+    file.write("\n\r")
+
+
     if not pos.mode:
         print("Neni fix", pos)
         return
@@ -106,6 +116,15 @@ def uploadPosition():
             'speed': pos.hspeed,
         }
     }
+
+    #file.write(datetime.datetime.utcnow().isoformat()+","+",".join([str(x) for x in list(doc['data'].values())])+"\n\r")
+    #file.write(datetime.datetime.utcnow().isoformat()+",")
+    #file.write(pos.lat),
+    #file.write(pos.lon),
+    #file.write(pos.alt),
+    #file.write(pos.hspeed),
+    #file.write(pos.mode)
+
     print(doc)
     # post position to habitat
     try:
