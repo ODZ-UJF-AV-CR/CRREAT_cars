@@ -16,18 +16,18 @@ syncposdt = np.dtype([
 ])
 
 def loadrec(file, skipsamples=False):
-	head = np.frombuffer(file.read(headerdt.itemsize), dtype=headerdt)
+    head = np.frombuffer(file.read(headerdt.itemsize), dtype=headerdt)
     print(type(head), head)
     head = head[0]
-	samplebytes = (head['preTrigger'] + head['postTrigger']) * head['descSpan']
-	if skipsamples:
-		samples = None
-		file.seek(headerdt.itemsize + samplebytes)
-	else:
-		samples = np.fromfile(file, count=samplebytes//16, dtype=np.dtype("(8,)<i2"))
-	synclog = np.frombuffer(file.read(), dtype=syncposdt)
+    samplebytes = (head['preTrigger'] + head['postTrigger']) * head['descSpan']
+    if skipsamples:
+        samples = None
+        file.seek(headerdt.itemsize + samplebytes)
+    else:
+        samples = np.fromfile(file, count=samplebytes//16, dtype=np.dtype("(8,)<i2"))
+    synclog = np.frombuffer(file.read(), dtype=syncposdt)
 
-	return head, samples, synclog
+    return head, samples, synclog
 
 def edges(rec):
 	h, s, p = rec
@@ -210,7 +210,7 @@ def plotrec(h, samples, synclog, fn, pre_trigger_blocks=10, post_trigger_blocks=
         if t > at and t < bt:
             for ax in [ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8]:
                 ax.axvline(x=t2s(t), color='purple', ls='--')
-return fig
+    return fig
 
 
 def axis_plotrec(axis, signal_samples, a, b, ticker, formatter, title):

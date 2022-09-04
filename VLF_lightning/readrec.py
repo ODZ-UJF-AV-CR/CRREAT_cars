@@ -104,6 +104,12 @@ import scipy.signal
 import numpy as np
 import math
 import traceback
+import pandas as pd
+
+def moving_average(x, w):
+    d = pd.Series(x)
+    d = d.rolling(w).mean()
+    return d
 
 def waterfallize_pre(signal, bins):
     window = 0.5 * (1.0 - np.cos((2 * math.pi * np.arange(bins)) / bins))
@@ -216,6 +222,7 @@ def axis_plotrec(axis, h, signal_samples, a, b, ticker, formatter, title, sps=10
     axis.xaxis.set_major_locator(ticker)
     axis.xaxis.set_major_formatter(formatter)
     axis.plot(range(a, b), signal_samples, linestyle="", marker=".", alpha=0.5, markersize=1)
+    axis.plot(range(a, b), moving_average(signal_samples, 20), linestyle="", marker=".", alpha=0.5, markersize=1, color="red")
 
     axis.set_title(title)
     axis.set_xlabel('')
@@ -235,6 +242,7 @@ def axis_plotrec(axis, h, signal_samples, a, b, ticker, formatter, title, sps=10
 
     # Tohle nefunguje spravne 
     axis.axvline(x=(h['preTrigger']), color='b')
+    #print("ticker", ticker)
 
 
     
@@ -255,9 +263,7 @@ def selective_plotrec(h, samples, synclog, fn, pre_trigger_blocks=10, post_trigg
         a = (h['preTrigger']-pre_trigger_blocks)*h['descSpan']//16 #select block of samples before trigger
         b = (h['preTrigger']+post_trigger_blocks)*h['descSpan']//16  #select blocks after trigger 
 
-        signal_samples = samples[a:b,ch]
-        print(a, b, len(samples[:,0]))
-        
+        signal_samples = samples[a:b,ch]        
         axis_plotrec(ax7[i], h, signal_samples, a, b, ticker, formatter, str("channel: {}".format(ch)))
 
     return fig
