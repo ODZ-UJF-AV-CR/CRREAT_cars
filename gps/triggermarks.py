@@ -61,6 +61,8 @@ for (raw_data, parsed_data) in ubr.iterate():
 
 # UBX(TIM-TM2, ch=0, mode=1, run=0, newFallingEdge=1, timeBase=2, utc=1, time=1, newRisingEdge=1, count=167, wnR=2225, wnF=2225, towMsR=566930967, towSubMsR=128565, towMsF=566930967, towSubMsF=300502, accEst=1073)>
         file.write(retezec+"\n\r")
+        #print(retezec)
+        file.flush()
 
     #print(parsed_data.identity)
 
