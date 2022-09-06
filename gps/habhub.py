@@ -19,6 +19,7 @@ os.makedirs(file_path, exist_ok=True)
 file_name = file_path + station + "_HABHUB_" + datetime.datetime.utcnow().strftime("%Y%m%d_%H%M%S")+".csv"
 file=open(file_name, "a")
 
+time.sleep(10)
 gpsd.connect(host = "192.168.1.1")
 pos = gpsd.get_current()
 print(pos.mode)
