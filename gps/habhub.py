@@ -10,15 +10,16 @@ import gpsd, os, time
 callsign_init = False
 url_habitat_uuids = "http://habitat.habhub.org/_uuids?count=%d"
 url_habitat_db = "http://habitat.habhub.org/habitat/"
-callsign = "CRREAT_"+os.environ.get('STATION', 'CARx')
+station = os.environ.get('STATION', 'CAR2')
+callsign = "CRREAT_"+station
 uuids = []
 
 file_path="/data/habhub/"
-station = os.environ.get('STATION', "CARx")
 os.makedirs(file_path, exist_ok=True)
 file_name = file_path + station + "_HABHUB_" + datetime.datetime.utcnow().strftime("%Y%m%d_%H%M%S")+".csv"
 file=open(file_name, "a")
 
+time.sleep(10)
 gpsd.connect(host = "192.168.1.1")
 pos = gpsd.get_current()
 print(pos.mode)
@@ -109,11 +110,16 @@ def uploadPosition():
         'time_created': ISOStringNow(),
         'data': {
             'callsign': callsign,
-            'chase': True,
+            #'chase': True,
             'latitude': pos.lat,
             'longitude': pos.lon,
             'altitude': pos.alt,
             'speed': pos.hspeed,
+             'client': {
+               'name': 'CREAT TEAM',
+               'version': '1.0',
+               'agent': "Omnia"
+            }
         }
     }
 
