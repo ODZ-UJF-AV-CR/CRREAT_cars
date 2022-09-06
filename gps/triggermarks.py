@@ -1,6 +1,8 @@
 import socket
 from pyubx2 import UBXReader
-import os, datetime
+import os, datetime, time
+
+time.sleep(10)
 
 stream = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 stream.connect(("192.168.1.1", 2947))
