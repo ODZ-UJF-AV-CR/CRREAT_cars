@@ -109,11 +109,16 @@ def uploadPosition():
         'time_created': ISOStringNow(),
         'data': {
             'callsign': callsign,
-            'chase': True,
+            #'chase': True,
             'latitude': pos.lat,
             'longitude': pos.lon,
             'altitude': pos.alt,
             'speed': pos.hspeed,
+             'client': {
+               'name': 'CREAT TEAM',
+               'version': '1.0',
+               'agent': "Omnia"
+            }
         }
     }
 
