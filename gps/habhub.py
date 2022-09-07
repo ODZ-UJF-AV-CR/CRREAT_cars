@@ -10,9 +10,13 @@ import gpsd, os, time
 callsign_init = False
 url_habitat_uuids = "http://habitat.habhub.org/_uuids?count=%d"
 url_habitat_db = "http://habitat.habhub.org/habitat/"
-station = os.environ.get('STATION', 'CAR2')
+station = os.environ.get('STATION', 'CARx')
+#station = "CAR2"
 callsign = "CRREAT_"+station
+#callsign = "CRREAT_CAR2"
 uuids = []
+
+print("CALLSIGN", callsign)
 
 file_path="/data/habhub/"
 os.makedirs(file_path, exist_ok=True)
@@ -110,7 +114,7 @@ def uploadPosition():
         'time_created': ISOStringNow(),
         'data': {
             'callsign': callsign,
-            #'chase': True,
+            'chase': True,
             'latitude': pos.lat,
             'longitude': pos.lon,
             'altitude': pos.alt,
