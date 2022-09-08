@@ -10,6 +10,10 @@ Konfigurace je uložena v [tomto]() repozitáři a do systému se zavádí pomoc
 ln -s /home/kaklik/repos/CRREAT_cars/systemd/CAR2_env.conf /etc/environment.d/00-crreat.conf
 ```
 
+
+## Znovunačtení importovaných služeb
+`systemctl daemon-reload`
+
 ## Proměnné
 
 Seznam proměnných, které by měly obsahovat věchny konfigurace:
