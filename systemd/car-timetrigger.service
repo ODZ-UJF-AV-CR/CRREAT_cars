@@ -2,7 +2,9 @@
 Description=CAR CARDOS logger
 
 [Service]
-EnvironmentFile=-/etc/environment.d/00-creeat.conf
+EnvironmentFile=-/etc/environment.d/00-crreat.conf
+Restart=always
+RestartSec=10s
 ExecStart=python3 /root/repos/CRREAT_cars/gps/triggermarks.py
 
 [Install]

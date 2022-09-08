@@ -5,6 +5,8 @@ Description=CAR GPS simple logger
 #Wants=gpsd.service
 #After=gpsd.service
 EnvironmentFile=-/etc/environment.d/00-crreat.conf
+Restart=always
+RestartSec=10s
 ExecStart=/root/repos/CRREAT_cars/gps/gpslog_simple.sh
 
 [Install]
