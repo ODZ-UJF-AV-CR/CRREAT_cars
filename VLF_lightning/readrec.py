@@ -222,7 +222,7 @@ def axis_plotrec(axis, h, signal_samples, a, b, ticker, formatter, title, sps=10
     axis.xaxis.set_major_locator(ticker)
     axis.xaxis.set_major_formatter(formatter)
     axis.plot(range(a, b), signal_samples, linestyle="", marker=".", alpha=0.5, markersize=1)
-    axis.plot(range(a, b), moving_average(signal_samples, 20), linestyle="", marker=".", alpha=0.5, markersize=1, color="red")
+    #axis.plot(range(a, b), moving_average(signal_samples, 20), linestyle="", marker=".", alpha=0.5, markersize=1, color="red")
 
     axis.set_title(title)
     axis.set_xlabel('')
