@@ -7,8 +7,12 @@ Auta vždy byla v trochu rozdílném stavu, a dosáhnout toho že budou úplně 
 Konfigurace je uložena v [tomto]() repozitáři a do systému se zavádí pomocí symlinku. Pro případ aktualizace je forma symlinku vhodná, protože tato konfigurace bude vždy uložena na githubu.
 
 ```
-ln -s /home/kaklik/repos/CRREAT_cars/systemd/CAR2_env.conf /etc/environment.d/00-creeat.conf
+ln -s /home/kaklik/repos/CRREAT_cars/systemd/CAR2_env.conf /etc/environment.d/00-crreat.conf
 ```
+
+
+## Znovunačtení importovaných služeb
+`systemctl daemon-reload`
 
 ## Proměnné
 
