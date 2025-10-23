@@ -27,11 +27,13 @@ The Recording mode should be activated manually from the camera web GUI.
 
 ![High-speed whole sky camera - Waterproof box with camera mount](doc/img/camera_mount.jpg)
 
-Camera itself has wide angle CS [FE185C057HA-1](https://www.bhphotovideo.com/c/product/404281-REG/Fujinon_FE185C057HA1_FE185C057HA_1_2_3_1_8mm_F_1_4.html) lenses. Power of the camera is delivered from 12V car on-board socket. The camera requires 20V as power input. Therefore the power voltage is converted by [power supply converter](https://www.alza.cz/EN/auto/oem-power-supply-converter-for-laptops-12-30v-90w-d6269710.htm)
+The camera itself has wide angle CS [FE185C057HA-1](https://www.bhphotovideo.com/c/product/404281-REG/Fujinon_FE185C057HA1_FE185C057HA_1_2_3_1_8mm_F_1_4.html) lenses. The power of the camera is delivered from a 12V car on-board socket. The camera requires 20V as power input. Therefore the power voltage is converted by [power supply converter](https://www.alza.cz/EN/auto/oem-power-supply-converter-for-laptops-12-30v-90w-d6269710.htm),
+
+The camera power is controlled by [car_power_controler](https://github.com/ODZ-UJF-AV-CR/car_power_controler).
 
 ## Usage
 
-The camera should be in "Recording" state. Then a call of the script causes a save of the video Recorded in  RAM.
+The camera should be in a "Recording" state. Then a call of the script causes a save of the video Recorded in  RAM.
 
     ./record_trigger.py
 
@@ -39,9 +41,9 @@ The camera should be in "Recording" state. Then a call of the script causes a sa
 ![Saving the video captured by Chronos high-speed camera](doc/img/saving_video.png)
 
 
-This script disable camera LCD to save power and then save the recorded video from RAM.
+This script disables the camera LCD to save power and then saves the recorded video from RAM.
 
-I the case the LCD needs to be activated again. It could be done by different script
+I this case the LCD needs to be activated again. It could be done by a different script
 
     ./reenable_LCD.py
 
@@ -50,7 +52,7 @@ I the case the LCD needs to be activated again. It could be done by different sc
 
 
 
-### Eneable SSHFS
+### Enable SSHFS
 
 SSHFS support is not enabled in the firmware that supplies KRONTECH, this can be eneabled easily by modifying the OpenSSH server configuration.
 

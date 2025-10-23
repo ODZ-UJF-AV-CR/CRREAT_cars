@@ -6,14 +6,22 @@ connectors:
     pinlabels: [SPI0, SPI0_SCK, SPI0_MOSI, SPI0_MISO, UART1_RxD, UART1_TxD, I2C6_SDA, I2C6_SCL, 3v3, GND, GPIO18, GPIO33, GPIO34, GPIO35, GPIO36, GPIO42, GPIO44, GPIO47, GPIO51, GPIO56]
   GPS:
     type: MLAB GPS02B
+    image:
+      src: omnia_gps_2.jpg
+      width: 200       # range: 1~65535; unit: points
     subtype: x
-    pincount: 5
-    pinlabels: [GND, 3v3, TPL, TxD, RxD]
+    pincount: 6
+    pinlabels: [GND, 3v3, TPL, EXTINT, TxD, RxD]
   RSMS:
     type: UST RSMS02
     subtype: TTL-LVDS
     pincount: 4
     pinlabels: [GND, TTL0, TTL1, GND]
+  Trigger:
+    type: Arduino MCU
+    subtype:
+    pincount: 4
+    pinlabels: [TrigOUT, TrigOUT, TrigOUT, TrigOUT]
 
 cables:
   MW_1:
@@ -23,8 +31,8 @@ cables:
     colors: [GY, BN, OG, BK, WH]
 
   MW_2:
-    wirecount: 2
-    colors: [BK, PK]
+    wirecount: 3
+    colors: [BK, PK, GY]
     show_name: false
     show_wirecount: false
     
@@ -39,6 +47,10 @@ connections:
     - GPS: [1,3]
     - MW_2: [1,2]
     - RSMS: [1,2]
+  -
+    - GPS: [4]
+    - MW_2: [3]
+    - Trigger: [1]
 
 tweak:
   override:
